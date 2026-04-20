@@ -32,7 +32,10 @@ const RequestTicketManager = () => {
     const { error } = await supabase.from('customer_requests').update({ status }).eq('id', selectedRequest.id);
     if(error) toast({ title: "Error", variant: "destructive" });
     else {
-      toast({ title: "Updated" });
+      toast({
+    title: "تم التحديث",
+    description: "تم تغيير حالة الطلب بنجاح",
+  });
       setSelectedRequest({...selectedRequest, status});
       fetchRequests();
     }
