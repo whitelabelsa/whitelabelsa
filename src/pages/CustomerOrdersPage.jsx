@@ -46,18 +46,18 @@ const CustomerOrdersPage = () => {
 
                <p>
                     الحالة:{" "}
-                    <span
-                      style={{
-                        color:
-                          order.status === "done"
-                            ? "green"
-                            : order.status === "in_progress"
-                            ? "orange"
-                            : "blue",
-                        fontWeight: "bold",
-                      }}
-                    >
-                      {order.status}
+                        <span
+                                className="px-2 py-1 rounded text-white text-sm"
+                                style={{
+                                  background:
+                                    order.status === "done"
+                                      ? "green"
+                                      : order.status === "in_progress"
+                                      ? "orange"
+                                      : "blue",
+                                }}
+                              >
+                                {order.status}
                     </span>
                   </p>
 
