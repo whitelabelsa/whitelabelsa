@@ -18,7 +18,7 @@ import { AdminAuthProvider } from '@/contexts/AdminAuthContext';
 import { CustomerAuthProvider } from '@/contexts/CustomerAuthContext';
 import useScrollToTop from '@/hooks/useScrollToTop';
 import EmailConfirmedPage from './pages/EmailConfirmedPage';
-
+import CustomerDashboard from './pages/CustomerDashboard';
 
 
 function App() {
@@ -66,6 +66,16 @@ const AppContent = () => {
 
       {/* Admin Route - Login and Dashboard combined */}
       <Route path="/dashboard" element={<DashboardPage />} />
+
+       {/* customer  Route - Login and Dashboard combined */}
+      <Route 
+  path="/customer-dashboard" 
+  element={
+    <ProtectedCustomerRoute>
+      <CustomerDashboard />
+    </ProtectedCustomerRoute>
+  } 
+/>
       
       {/* Customer Routes */}
       <Route path="/customer-login" element={<CustomerLoginPage />} />
