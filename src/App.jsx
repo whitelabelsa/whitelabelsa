@@ -17,9 +17,13 @@ import { supabase } from '@/lib/customSupabaseClient';
 import { AdminAuthProvider } from '@/contexts/AdminAuthContext';
 import { CustomerAuthProvider } from '@/contexts/CustomerAuthContext';
 import useScrollToTop from '@/hooks/useScrollToTop';
-import EmailConfirmedPage from './pages/EmailConfirmedPage';
+import CustomerRegisterPage from './pages/CustomerRegisterPage';
+import CustomerLoginPage from './pages/CustomerLoginPage';
 import CustomerDashboard from './pages/CustomerDashboard';
-
+import CustomerProfilePage from './pages/CustomerProfilePage';
+import CustomerOrdersPage from './pages/CustomerOrdersPage';
+import CustomerMessagesPage from './pages/CustomerMessagesPage';
+import EmailConfirmedPage from './pages/EmailConfirmedPage';
 
 function App() {
   useEffect(() => {
