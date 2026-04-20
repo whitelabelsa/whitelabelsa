@@ -17,6 +17,9 @@ import { supabase } from '@/lib/customSupabaseClient';
 import { AdminAuthProvider } from '@/contexts/AdminAuthContext';
 import { CustomerAuthProvider } from '@/contexts/CustomerAuthContext';
 import useScrollToTop from '@/hooks/useScrollToTop';
+import EmailConfirmedPage from './pages/EmailConfirmedPage';
+
+
 
 function App() {
   useEffect(() => {
@@ -66,6 +69,7 @@ const AppContent = () => {
       
       {/* Customer Routes */}
       <Route path="/customer-login" element={<CustomerLoginPage />} />
+      <Route path="/email-confirmed" element={<EmailConfirmedPage />} />
       <Route 
         path="/customer-dashboard" 
         element={
