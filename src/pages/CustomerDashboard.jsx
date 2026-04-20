@@ -1,10 +1,26 @@
 import React from "react";
 import { useAuth } from "@/contexts/SupabaseAuthContext";
 import { useNavigate } from "react-router-dom";
+import { supabase } from "@/lib/customSupabaseClient";
 
 const CustomerDashboard = () => {
   const { user, signOut } = useAuth();
   const navigate = useNavigate();
+
+  // إنشاء طلب
+  const createOrder = async () => {
+    const { error } = await supabase.from("orders").insert({
+      user_id: user.id,
+      title: "طلب جديد من العميل",
+      status: "pending",
+    });
+
+    if (!error) {
+      alert("تم إنشاء الطلب ✅");
+    } else {
+      alert("حدث خطأ");
+    }
+  };
 
   return (
     <div className="p-6 font-cairo">
@@ -22,6 +38,10 @@ const CustomerDashboard = () => {
 
       {/* أزرار */}
       <div className="flex gap-3 flex-wrap">
+
+        <button onClick={createOrder}>
+          ➕ إنشاء طلب
+        </button>
 
         <button onClick={() => navigate("/customer-profile")}>
           تعديل البيانات
