@@ -70,12 +70,12 @@ const AppContent = () => {
       {/* Admin Route - Login and Dashboard combined */}
       <Route path="/dashboard" element={<DashboardPage />} />
 
-     {/* Customer Auth */}
+ {/* Customer Auth */}
 <Route path="/customer-register" element={<CustomerRegisterPage />} />
 <Route path="/customer-login" element={<CustomerLoginPage />} />
 <Route path="/email-confirmed" element={<EmailConfirmedPage />} />
 
-{/* Customer Dashboard */}
+{/* Dashboard */}
 <Route 
   path="/customer-dashboard" 
   element={
@@ -85,6 +85,33 @@ const AppContent = () => {
   } 
 />
 
+{/* Protected Pages */}
+<Route 
+  path="/customer-profile" 
+  element={
+    <ProtectedCustomerRoute>
+      <CustomerProfilePage />
+    </ProtectedCustomerRoute>
+  } 
+/>
+
+<Route 
+  path="/customer-orders" 
+  element={
+    <ProtectedCustomerRoute>
+      <CustomerOrdersPage />
+    </ProtectedCustomerRoute>
+  } 
+/>
+
+<Route 
+  path="/customer-messages" 
+  element={
+    <ProtectedCustomerRoute>
+      <CustomerMessagesPage />
+    </ProtectedCustomerRoute>
+  } 
+/>
 <Route path="/customer-profile" element={<CustomerProfilePage />} />
 <Route path="/customer-orders" element={<CustomerOrdersPage />} />
 <Route path="/customer-messages" element={<CustomerMessagesPage />} />
