@@ -132,6 +132,25 @@ const DashboardCard = ({ title, value, icon: Icon, color, isText }) => {
     green: "bg-green-50 text-green-600",
     purple: "bg-purple-50 text-purple-600"
   };
+
+
+  const [orders, setOrders] = useState([]);
+
+const fetchOrders = async () => {
+  const { data } = await supabase
+    .from("orders")
+    .select("*")
+    .order("created_at", { ascending: false });
+
+  setOrders(data || []);
+};
+
+useEffect(() => {
+  if (activeTab === "requests") {
+    fetchOrders();
+  }
+}, [activeTab]);
+
   
   return (
     <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
