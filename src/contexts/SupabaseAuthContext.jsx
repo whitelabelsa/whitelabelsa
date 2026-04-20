@@ -105,7 +105,4 @@ export const useAuth = () => {
 };
 
 
-await supabase.auth.signUp({
-  email: form.email,
-  password: form.password,
-});
+await signUp(email, password, options);
