@@ -44,13 +44,24 @@ const CustomerOrdersPage = () => {
 
               <h2 className="font-bold">{order.title}</h2>
 
-              <p>
-                الحالة:{" "}
-                <span className="text-blue-600">
-                  {order.status}
-                </span>
-              </p>
+               <p>
+                    الحالة:{" "}
+                    <span
+                      style={{
+                        color:
+                          order.status === "done"
+                            ? "green"
+                            : order.status === "in_progress"
+                            ? "orange"
+                            : "blue",
+                        fontWeight: "bold",
+                      }}
+                    >
+                      {order.status}
+                    </span>
+                  </p>
 
+              
               <p className="text-sm text-gray-500">
                 {new Date(order.created_at).toLocaleDateString()}
               </p>
