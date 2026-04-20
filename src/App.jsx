@@ -18,7 +18,6 @@ import { AdminAuthProvider } from '@/contexts/AdminAuthContext';
 import { CustomerAuthProvider } from '@/contexts/CustomerAuthContext';
 import useScrollToTop from '@/hooks/useScrollToTop';
 import CustomerRegisterPage from './pages/CustomerRegisterPage';
-import CustomerLoginPage from './pages/CustomerLoginPage';
 import CustomerDashboard from './pages/CustomerDashboard';
 import CustomerProfilePage from './pages/CustomerProfilePage';
 import CustomerOrdersPage from './pages/CustomerOrdersPage';
@@ -71,8 +70,13 @@ const AppContent = () => {
       {/* Admin Route - Login and Dashboard combined */}
       <Route path="/dashboard" element={<DashboardPage />} />
 
-       {/* customer  Route - Login and Dashboard combined */}
-      <Route 
+     {/* Customer Auth */}
+<Route path="/customer-register" element={<CustomerRegisterPage />} />
+<Route path="/customer-login" element={<CustomerLoginPage />} />
+<Route path="/email-confirmed" element={<EmailConfirmedPage />} />
+
+{/* Customer Dashboard */}
+<Route 
   path="/customer-dashboard" 
   element={
     <ProtectedCustomerRoute>
@@ -80,20 +84,10 @@ const AppContent = () => {
     </ProtectedCustomerRoute>
   } 
 />
-      
-      {/* Customer Routes */}
-      <Route path="/customer-login" element={<CustomerLoginPage />} />
-      <Route path="/email-confirmed" element={<EmailConfirmedPage />} />
-      <Route 
-        path="/customer-dashboard" 
-        element={
-          <ProtectedCustomerRoute>
-            <div className="p-10 text-center text-2xl font-bold font-cairo">
-              لوحة تحكم العميل (قريباً)
-            </div>
-          </ProtectedCustomerRoute>
-        } 
-      />
+
+<Route path="/customer-profile" element={<CustomerProfilePage />} />
+<Route path="/customer-orders" element={<CustomerOrdersPage />} />
+<Route path="/customer-messages" element={<CustomerMessagesPage />} />
     </Routes>
   );
 };
