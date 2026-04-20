@@ -103,3 +103,9 @@ export const useAuth = () => {
   }
   return context;
 };
+
+
+await supabase.auth.signUp({
+  email: form.email,
+  password: form.password,
+});
